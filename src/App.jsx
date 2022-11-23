@@ -4,21 +4,25 @@ import StarImage from "/images/Star.png"
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
 import Card from "../components/Card"
+import Data from "./Data"
 
 function App() {
+
+  const cards = Data.map(item => {
+    return (
+      <Card 
+            key={item.id}
+            item={item}
+          />
+    )
+  })
   return (
     <div className="container">
       <Navbar />
       <Hero />
-      <Card 
-        img={KatieImage}
-        starImage={StarImage}
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
+      <section className="cards-list">
+                {cards}
+      </section>
     </div>
   )
   
